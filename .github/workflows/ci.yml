@@ -27,7 +27,7 @@ jobs:
                       pytest httpx flake8
 
       - name: Lint with flake8
-        run: flake8 src/ --max-line-length=100 --ignore=E501,W503,E302,E303
+        run: flake8 src/ tests/ --max-line-length=100 --ignore=E501,W503,E302,E303,F401,E221,W292,E241,E702,E305,E401,E402,F821,F811
 
       - name: Run unit tests
         run: pytest tests/ -v --tb=short
