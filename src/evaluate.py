@@ -40,7 +40,8 @@ def evaluate(params):
     with open(metrics_path, "w") as f:
         json.dump(metrics, f, indent=2)
 
-    mlflow.set_tracking_uri("http://localhost:5000")
+    tracking_uri = os.getenv("MLFLOW_TRACKING_URI", "mlruns")
+    mlflow.set_tracking_uri(tracking_uri)
     mlflow.set_experiment("loan-risk-prediction")
     with mlflow.start_run(run_name="lgbm-evaluation"):
         mlflow.log_metrics(metrics)

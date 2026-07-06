@@ -20,7 +20,8 @@ def train(params):
 
     mp = params["model"]
 
-    mlflow.set_tracking_uri("http://localhost:5000")
+    tracking_uri = os.getenv("MLFLOW_TRACKING_URI", "mlruns")
+    mlflow.set_tracking_uri(tracking_uri)
     mlflow.set_experiment("loan-risk-prediction")
 
     with mlflow.start_run(run_name="lgbm-training"):
