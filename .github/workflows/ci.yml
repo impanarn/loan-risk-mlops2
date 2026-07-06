@@ -102,10 +102,3 @@ jobs:
           docker tag ${{ env.IMAGE_NAME }}:${{ github.sha }} \
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
-
-      - name: Push to DockerHub
-        if: github.ref == 'refs/heads/main'
-        run: |
-          docker tag ${{ env.IMAGE_NAME }}:${{ github.sha }} \
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
