@@ -1,0 +1,3 @@
+echo $null > data/raw/.gitkeep
+echo $null > data/processed/.gitkeep
+echo $null > models/.gitkeep

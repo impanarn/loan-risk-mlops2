@@ -216,3 +216,23 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# MLOps specific
+.env
+*.egg-info/
+mlruns/
+__pycache__/
+*.pyc
+.dvc/cache/
+# MLOps - ignore actual data/model files but allow DVC pointers
+data/raw/*.csv
+data/raw/*.parquet
+data/processed/*.csv
+data/processed/*.parquet
+models/*.pkl
+models/*.joblib
+
+# Allow gitkeep and DVC pointer files
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!models/.gitkeep
